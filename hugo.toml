@@ -30,12 +30,6 @@ paginate = 100
         url = "/posts/"
         weight = 3
 
-  [[menu.main]]
-        identifier = "categories"
-        name = "Categories"
-        url = "/categories/"
-        weight = 4
-
 # Footer
   [[menu.footer]]
         name = "Github"
