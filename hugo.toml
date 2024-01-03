@@ -1,6 +1,6 @@
 baseURL = 'https://jajeffries.com/'
 languageCode = 'en-us'
-title = 'Blog'
+title = 'Jim's blog'
 theme = 'smol'
 paginate = 100
 
