@@ -1,5 +1,15 @@
 {{ define "main" }}
 	<main>
+		<article>
+			<h1>Hi, I'm Jim</h1>
+			<p>
+				This blog is only sporadically updated. Some of it has been migrated from an old wordpress site so the formatting might be a bit off. If you want to know more about me <a href="/pages/about-me">look here</a>. If you want to find out about some of the things I've talked about <a href="/pages/talks">look here</a>.
+			</p>
+			<p>
+				If you want to work on something together or just get in touch then message me on <a href="https://mastodon.social/@jajeffries">Mastadon</a>
+			</p>
+		</article>
+		<h1>Posts</h1>
 		{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
 		{{ range $paginator.Pages }}
 			{{ .Render "summary" }}

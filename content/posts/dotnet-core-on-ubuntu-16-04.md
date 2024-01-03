@@ -5,7 +5,9 @@ draft: false
 tags: []
 ---
 
-I've been playing around with dotnet core on linux on an old laptop. I just went to install it on my new laptop running ubuntu 16.04 and found that it won't be supported until the RTM release. In the meantime here is a work around where I basically installed the old version of libicu (which I think is something to do with unicode).```
+I've been playing around with dotnet core on linux on an old laptop. I just went to install it on my new laptop running ubuntu 16.04 and found that it won't be supported until the RTM release. In the meantime here is a work around where I basically installed the old version of libicu (which I think is something to do with unicode).
+
+```
 wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu52\_52.1-3ubuntu0.4\_amd64.deb
 
 sudo dpkg -i libicu52\_52.1-3ubuntu0.4\_amd64.deb

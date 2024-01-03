@@ -5,4 +5,13 @@ draft: false
 tags: []
 ---
 
-A couple of people were interested in quick ways of checking program outputs against golden masters last night at XP Manchester. Here's a couple of one liners I use. This assumes your program outputs to stdout and you've already created a file with the output. Firstly using powershell if I'm on windows without bash \[code\] (compare-object (get-content goldenmaster.txt) (yourcommand) | Measure-Object).Count \[/code\] Or alternatively using bash \[code\] diff goldenmaster.txt <(youcommand) >/dev/null; echo $? \[/code\]
+A couple of people were interested in quick ways of checking program outputs against golden masters last night at XP Manchester. Here's a couple of one liners I use. This assumes your program outputs to stdout and you've already created a file with the output. Firstly using powershell if I'm on windows without bash
+
+```
+(compare-object (get-content goldenmaster.txt) (yourcommand) | Measure-Object).Count
+```
+Or alternatively using bash
+
+```
+diff goldenmaster.txt <(youcommand) >/dev/null; echo $?
+```
