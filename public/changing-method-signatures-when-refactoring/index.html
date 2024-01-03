@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Changing method signatures when refactoring</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Changing method signatures when refactoring</h1>
+			<b><time>24.04.2015 11:51</time></b>
+		       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<p>I&rsquo;ve been practicing refactoring a lot recently (I&rsquo;m talking about it in a session with <a href="https://twitter.com/kevinrutherford">@kevinrutherford</a> at <a href="http://agilemanchester.net/2015/sessions/index.php?session=18">Agile Manchester</a> in a few weeks) and I&rsquo;ve found a pattern that I wasn&rsquo;t aware of before. When changing a method signature by changing the parameters I found I was going too long without running my tests as my code wouldn&rsquo;t compile. So imagine I have a TheatrePerformance class which is responsible for keeping track of which seats are available and taken for a theatre performance. It might look something like this [code] class TheatrePerformance def initialize(available_seats:[], taken_seats:[]) @available_seats = available_seats @taken_seats = taken_seats end def book(seat_number:) @available_seats.delete(seat_number) @taken_seats.push(seat_number) # &hellip; some other stuff &hellip; end end [/code] And I want to start using a bookings object which encapsulates the two parameters and gives us a better abstraction. Previously my first step would be to pass that in as a parameter. [code] class TheatrePerformance def initialize(bookings:) @available_seats = available_seats @taken_seats = taken_seats end def book(seat_number:) @available_seats.delete(seat_number) @taken_seats.push(seat_number) # &hellip; some other stuff &hellip; end end [/code] Straight away I can&rsquo;t meaningfully run my tests anymore to verify what I&rsquo;m doing because the constructor is invalid. So instead if I <strong>add</strong> a parameter and don&rsquo;t use it yet then I can still run my tests to check I&rsquo;ve not broken anything. [code] class TheatrePerformance def initialize(available_seats:[], taken_seats:[], bookings:) @available_seats = available_seats @taken_seats = taken_seats end def book(seat_number:) @available_seats.delete(seat_number) @taken_seats.push(seat_number) # &hellip; some other stuff &hellip; end end [/code] And then change the rest of the code to use the new parameter before removing the other constructor parameters. [code] class TheatrePerformance def initialize(available_seats:[], taken_seats:[], bookings:) @available_seats = available_seats @taken_seats = taken_seats @bookings = bookings end def book(seat_number:) @available_seats.delete(seat_number) @taken_seats.push(seat_number) # &hellip; some other stuff &hellip; end end [/code] to [code] class TheatrePerformance def initialize(available_seats:[], taken_seats:[], bookings:) @bookings = bookings end def book(seat_number:) @bookings.book(seat_number) # &hellip; some other stuff &hellip; end end [/code] to [code] class TheatrePerformance def initialize(bookings:) @bookings = bookings end def book(seat_number:) @bookings.book(seat_number) # &hellip; some other stuff &hellip; end end [/code] I&rsquo;ve found this really useful as it lets me take really small steps, which minimises how much I have to think about before when making a change.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

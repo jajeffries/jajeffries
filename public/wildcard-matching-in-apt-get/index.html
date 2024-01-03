@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Wildcard matching in apt-get</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Wildcard matching in apt-get</h1>
+			<b><time>16.11.2013 12:02</time></b>
+		       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<p>I&rsquo;ve never really played with some of the more advanced features of debian and ubuntu&rsquo;s package manager, but today I came across something useful. Ubuntu installs LibreOffice as part of a new installation, which I don&rsquo;t really want as I use Google Drive for most presentations and spreadsheets. To uninstall it I typed</p>
+<blockquote>
+<p>sudo apt-get remove libre</p>
+</blockquote>
+<p>and pressed the tab button. There were lots of packages, but I couldn&rsquo;t see a base package that looked like it would remove everything. Just on the off chance that it might work I tried</p>
+<blockquote>
+<p>sudo apt-get remove libre*</p>
+</blockquote>
+<p>This came up with a big list of all the packages that I don&rsquo;t have installed and told me so</p>
+<blockquote>
+<p>&hellip; Package &rsquo;libreoffice-help-el&rsquo; is not installed, so not removed Package &rsquo;libreoffice-help-en-gb&rsquo; is not installed, so not removed Package &rsquo;libreoffice-help-es&rsquo; is not installed, so not removed Package &rsquo;libreoffice-help-et&rsquo; is not installed, so not removed Package &rsquo;libreoffice-help-eu&rsquo; is not installed, so not removed Package &rsquo;libreoffice-help-fi&rsquo; is not installed, so not removed &hellip;</p>
+</blockquote>
+<p>But it also correctly identified the packages to be removed and asked if I wanted to remove them. I&rsquo;m not sure whether this functionality is part of how the linux command line globs things or something built into apt-get. Either way, it might come in handy again some time.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>JavaScript Observable API&#39;s</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>JavaScript Observable API&#39;s</h1>
+			<b><time>16.02.2014 13:26</time></b>
+		       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<h4 id="heading"></h4>
+<p><a href="http://gravatar.com/bolshchikov" title="sergey@bolshchikov.net">bolshchikov</a> - <!-- raw HTML omitted -->Feb 0, 2014<!-- raw HTML omitted --></p>
+<p>What&rsquo;s your motivation that you decided not to use the native observable of javascript or the corresponding polyfill of Object.observe? <a href="https://github.com/new-proimage/Object.observe">https://github.com/new-proimage/Object.observe</a></p>
+<!-- raw HTML omitted -->
+<p>I&rsquo;m curious if you considered using Object.defineProperty to implement the observer pattern?</p>
+<!-- raw HTML omitted -->
+<p>Hi bolshchikov I considered this, but decided that as it is currently only supported in Chrome (see <a href="http://kangax.github.io/es5-compat-table/es6/#Object.observe">http://kangax.github.io/es5-compat-table/es6/#Object.observe</a>_%28part_of_b_ES7_/b_%29) as it is part of th eECMA Script 7 standard and ECMA Script 6 isn&rsquo;t fully supported yet, that I would write my own. I chose not to use the poyfill for now, as I like to be able to use a more fluid interface and use a more event driven approach. As you have probably noticed the API looks a lot like, jquery, which makes it familiar and easy to pick up, but also means you can link you binding calls. For example, var obj = new MyObject(); obj .on(&ldquo;add&rdquo;, function () { /*..*/ }) .on(&ldquo;remove&rdquo;, function () { /*..*/ }) I feel that this is a much nicer and simpler interface, until more people become familiar with Object.observe. What do you think? Thanks James</p>
+<!-- raw HTML omitted -->
+<p>Hi Joey Honestly, I didn&rsquo;t consider it. I do like the idea of not making the on and off functions enumerable, but I wonder what real advantage that would give. Maybe I will have a ply around with the idea and see if I can come up with any places that it would improve or simplify a project. Do you have any use cases it would simplify? Thanks James</p>
+<!-- raw HTML omitted -->
+<p>Check this out : <a href="https://github.com/attodorov/blast.js">https://github.com/attodorov/blast.js</a></p>
+<!-- raw HTML omitted -->
+<p>Cool. Looks like we share some similar goals. I&rsquo;ll have to try it out :)</p>
+<!-- raw HTML omitted -->
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

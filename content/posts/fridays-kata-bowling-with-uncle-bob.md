@@ -1,0 +1,8 @@
+---
+title: 'Friday''s Kata - Bowling with Uncle Bob'
+date: Sun, 09 Feb 2014 12:58:06 +0000
+draft: false
+tags: ['kata', 'TDD', ]
+---
+
+NOTE: This was written on Friday, but I didn't get chance to post it. Today's kata was uncle Bob's bowling in JavaScript. I started off writing a test for rolling all gutter balls. This let me quickly and easily get a passing test. I used the self shunt pattern to record the score by passing in the score leader board. Rather than refactor at this point I decided to add a test for scoring 1 on each roll. This added some triangulation forcing me to process the input rather than just update the score leader board with 0. Next I decided to start working on strikes. This was slightly more challenging as it changed the length of the input, which at that point I was relying on. As a quick fix I replaced any strikes in the input string with '10 0'. This gave me the correct amount of rolls again. I partitioned the string into an array of arrays and converted the strings to integers. So '1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1' became \[\[1, 1\],\[1, 1\],\[1, 1\],\[1, 1\],\[1, 1\],\[1, 1\],\[1, 1\],\[1, 1\],\[1, 1\],\[1, 1\]\]. Now all my tests were passing, but I wasn't too happy with some of the code. I was dealing with arrays a lot and felt that I could encapsulate this better in an object, so I introduced a Frame class. I feel that this made the code much more readable and easier to reason about as the language was that of the domain not just data structures.

@@ -1,0 +1,8 @@
+---
+title: 'Some git tips and a bonus bash tip'
+date: Tue, 10 Feb 2015 15:26:34 +0000
+draft: false
+tags: []
+---
+
+I've just come across a couple of useful git commands and thought I would share them Check which files you have ignored with you .gitignore file \[code\] git check-ignore \*\*/\* \[/code\] Or \[code\] git status --ignored \[/code\] List all files in your local repo \[code\] git ls-tree --full-tree -r HEAD \[/code\] You can also change HEAD to be any revision. For example, to get all the files from the previous revision: \[code\] git ls-tree --full-tree -r HEAD@{1} \[/code\] Update all of your submodules. I often use this in build scripts before my tests are run. \[code\] git submodule foreach git pull \[/code\] **BONUS** I always find it hard to remember these commands and don't like typing in big errorprone commands so I add a comment to the end of complicated commands, which I can then search for. For example, I I have lots of servers I need to SSH into from time to time, but only have the IP of the server, I can add a comment describing the server. \[code\] ssh me@123.123.123.123 #the123server \[/code\] Now on my command line when I press ctrl-r to search and type '#the123server' it finds my commend and the command before it. \[code\] (reverse-i-search)\`#': ssh me@123.123.123.123 #the123server \[/code\] Now just press enter to run the command. Hope these are useful to someone.

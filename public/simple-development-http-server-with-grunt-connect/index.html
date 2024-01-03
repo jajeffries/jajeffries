@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Simple development HTTP server with grunt connect</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Simple development HTTP server with grunt connect</h1>
+			<b><time>22.01.2015 19:49</time></b>
+		       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<p>I&rsquo;m working on a phonegap project at the moment. I like phonegap because it lets me develop quickly and iterate fast, because I can test in the browser. To serve the files I&rsquo;ve been using a <a href="http://gruntjs.com/">grunt</a> task called <a href="https://github.com/gruntjs/grunt-contrib-connect">grunt-contrib-connect</a>. It&rsquo;s simple to setup. I just run this command to install it and add it to my package.json: [code] npm install grunt-contrib-connect &ndash;save-dev [/code] And then add the following config to my gruntfile.js: [code language=&ldquo;js&rdquo;] module.exports = function(grunt) { // Project configuration. grunt.initConfig({ pkg: grunt.file.readJSON(&lsquo;package.json&rsquo;), connect: { dev: { options: { port: 9001, keepalive: true, hostname: &lsquo;0.0.0.0&rsquo;, base: &lsquo;build&rsquo; } } }); grunt.loadNpmTasks(&lsquo;grunt-contrib-connect&rsquo;); }; [/code] Now I can run my web server by running one simple command: [code] $ grunt connect:dev Running &ldquo;connect:dev&rdquo; (connect) task Waiting forever&hellip; Started connect web server on http://0.0.0.0:9001 [/code]</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

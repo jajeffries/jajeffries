@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code on Blog</title>
+    <link>https://jajeffries.com/blog/tags/code/</link>
+    <description>Recent content in Code on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Sep 2013 16:00:31 +0000</lastBuildDate><atom:link href="https://jajeffries.com/blog/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Single Responsibility Principle and Encapsulating Responsibilities</title>
+      <link>https://jajeffries.com/blog/single-responsibility-principle-and-encapsulating-responsibilities/</link>
+      <pubDate>Sun, 08 Sep 2013 16:00:31 +0000</pubDate>
+      
+      <guid>https://jajeffries.com/blog/single-responsibility-principle-and-encapsulating-responsibilities/</guid>
+      <description>As the name suggests, the single responsibility principle states that a class should have a single responsibility and also that it&amp;rsquo;s responsibility should be entirely encapsulated by the class.
+For example, let&amp;rsquo;s say we are writing a class that sends messages. We could write something like this
+public class MessageSender
+{
+public void SendInstantMessage(Message message) { &amp;hellip; }
+public void SendEmail(Email email) { &amp;hellip; }
+}
+I like to think of responsibilities as reasons to change, so this class has two reasons to change: To change how we send emails To change how we send instant messages Clearly this violates the SRP.</description>
+    </item>
+    
+  </channel>
+</rss>

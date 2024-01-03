@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Single Responsibility Principle and Encapsulating Responsibilities</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Single Responsibility Principle and Encapsulating Responsibilities</h1>
+			<b><time>08.09.2013 16:00</time></b>
+		       
+		           <a href="/tags/code">Code</a>
+        	       
+		           <a href="/tags/solid">SOLID</a>
+        	       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<p>As the name suggests, the single responsibility principle states that a class should have a single responsibility and also that it&rsquo;s responsibility should be entirely encapsulated by the class.</p>
+<p>For example, let&rsquo;s say we are writing a class that sends messages. We could write something like this</p>
+<blockquote>
+<p>public class MessageSender</p>
+<p>{</p>
+<p>public void SendInstantMessage(Message message) { &hellip; }<br>
+public void SendEmail(Email email) { &hellip; }</p>
+<p>}</p>
+</blockquote>
+<p>I like to think of responsibilities as reasons to change, so this class has two reasons to change: </p>
+<ol>
+<li>To change how we send emails</li>
+<li>To change how we send instant messages</li>
+</ol>
+<p>Clearly this violates the SRP. Instead we could write something like this</p>
+<blockquote>
+<p>public class InstantMessageSender</p>
+<p>{</p>
+<p>public void SendInstantMessage(Message message) { &hellip; }</p>
+<p>}</p>
+<p>public class EmailSender</p>
+<p>{</p>
+<p>public void SendEmail(Email email) { &hellip; }</p>
+<p>}</p>
+</blockquote>
+<p>This code satisfies both parts of the definition: each class only has one responsibility and the responsibilities are fully encapsulated within each class. </p>
+<p>Now let&rsquo;s say that our next requirement is a user sign up process. If as part of this we were to add some code that sends a confirmation email, then we would be breaking the SRP unless we were to use our EmailSender class. If we were to add the code to send the email without using the EmailSender class then the responsibility would not be fully encapsulated by our class. It would mean that if we needed to change how we connect to our email server for example, then we would have to remember to make changes in several places.</p>
+<p>Making changes like this makes our code less maintainable. At some point someone will forget to update one of the places and the system will end up broken. Let&rsquo;s try and avoid breaking things and keep things SOLID.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Naming boolean methods</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Naming boolean methods</h1>
+			<b><time>07.03.2017 08:51</time></b>
+		       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<p>I&rsquo;ve been thinking a bit over the last few days about something I&rsquo;ve seen quite a lot in a code base I&rsquo;m working on: method names that exactly describe the contents of a method returning a boolean. For example, [code language=&ldquo;cpp&rdquo;] bool IsUkCultureAndIsNotPublished(Page page) { return page.Culture == &ldquo;en-GB&rdquo; &amp;&amp; !page.IsPublished; } [/code] Forgetting about all the othe rthings wrong with this code it introduces some duplication between the name and what the method does. Next let&rsquo;s look at the place it&rsquo;s used. [code language=&ldquo;cpp&rdquo;] var pages = GetPages(); pages.Where(IsUkCultureAndIsNotPublished).ToList().ForEach(Publish); [/code] What if we need to add another condition? Do we add it inside our method and change the name? [code language=&ldquo;cpp&rdquo;] bool IsUkCultureAndIsNotPublishedAndIsValid(Page page) { return page.Culture == &ldquo;en-GB&rdquo; &amp;&amp; !page.IsPublished &amp;&amp; page.IsValid; } [/code] That seems like at some point someone won&rsquo;t remember to change the name. Maybe we should add it outside the method and wrap that in another method? [code language=&ldquo;cpp&rdquo;] bool IsUkCultureAndIsNotPublishedAndIsValid(Page page) { return IsUkCultureAndIsNotPublished(page) &amp;&amp; page.IsValid; } &hellip; var pages = GetPages(); pages.Where(IsUkCultureAndIsNotPublishedAndIsValid).ToList().ForEach(Publish); [/code] That seems a bit confusing too and now we&rsquo;ve introduced more duplication. The name of our IsUkCultureAndIsNotPublished method doesn&rsquo;t tell us the intent. It breaks encapsulation because it&rsquo;s telling us the internals of the method. I&rsquo;d suggest that a better name might be something like IsReadyToPublish. Let&rsquo;s have a look at our calling code now. [code language=&ldquo;cpp&rdquo;] var pages = GetPages(); pages.Where(IsReadyToPublish).ToList().ForEach(Publish); [/code] Now we can see why we are publishing the pages. Instead of having some pages that are Uk culture and not published, we have pages that are ready to publish. Describing the intent of the method allows us to have more readable code that you&rsquo;re more likely to understand when you come to read your code in 6 months time and reduces the number of places you need to update if your requirements change.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+<footer>
+	&copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}">{{ if .Site.Copyright }}{{ .Site.Copyright }}{{ else }}{{ .Site.Title }}{{ end }}</a>.
+	{{- range .Site.Menus.footer }}
+	<a href="{{ .URL }}">{{ .Name }}</a>.
+	{{- end }}
+</footer>

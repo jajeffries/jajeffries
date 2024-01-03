@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>js on Blog</title>
+    <link>https://jajeffries.com/blog/tags/js/</link>
+    <description>Recent content in js on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 May 2014 19:58:49 +0000</lastBuildDate><atom:link href="https://jajeffries.com/blog/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A really simple front end javascript router</title>
+      <link>https://jajeffries.com/blog/a-really-simple-front-end-javascript-router/</link>
+      <pubDate>Thu, 15 May 2014 19:58:49 +0000</pubDate>
+      
+      <guid>https://jajeffries.com/blog/a-really-simple-front-end-javascript-router/</guid>
+      <description>I dislike using large frameworks and libraries for front end work. I think I read a quote somewhere that you use librarie, but frameworks use you. I couldn&amp;rsquo;t agree more and in fact where possible I prefer to use snippets or gists, such as John Ressig&amp;rsquo;s MicroTemplates. The following funciton is intended to be used in a similar way, just copy it into your project. It listens to the popstate event and routes the change to the correct address based on an object you pass in.</description>
+    </item>
+    
+  </channel>
+</rss>

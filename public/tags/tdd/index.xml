@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TDD on Blog</title>
+    <link>https://jajeffries.com/blog/tags/tdd/</link>
+    <description>Recent content in TDD on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Feb 2014 19:19:30 +0000</lastBuildDate><atom:link href="https://jajeffries.com/blog/tags/tdd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Pocket Calculator Kata</title>
+      <link>https://jajeffries.com/blog/the-pocket-calculator-kata/</link>
+      <pubDate>Mon, 10 Feb 2014 19:19:30 +0000</pubDate>
+      
+      <guid>https://jajeffries.com/blog/the-pocket-calculator-kata/</guid>
+      <description>Today I had a quick go at Patchspace&amp;rsquo;s Ash Moran&amp;rsquo;s Pocket Calculator kata. I tried this once before when I was taking my first steps into BDD and found it quite challenging. In retrospect I think part of this might have been partly due to my lack of familiarisation with the tools I was using, specifically SpecFlow.
+I have since started just using unit tests when doing BDD as I find it avoids the &amp;ldquo;framework&amp;rdquo; distraction and let&amp;rsquo;s you and the customer really concentrate on the problem at hand.</description>
+    </item>
+    
+    <item>
+      <title>Friday&#39;s Kata - Bowling with Uncle Bob</title>
+      <link>https://jajeffries.com/blog/fridays-kata-bowling-with-uncle-bob/</link>
+      <pubDate>Sun, 09 Feb 2014 12:58:06 +0000</pubDate>
+      
+      <guid>https://jajeffries.com/blog/fridays-kata-bowling-with-uncle-bob/</guid>
+      <description>NOTE: This was written on Friday, but I didn&amp;rsquo;t get chance to post it. Today&amp;rsquo;s kata was uncle Bob&amp;rsquo;s bowling in JavaScript. I started off writing a test for rolling all gutter balls. This let me quickly and easily get a passing test. I used the self shunt pattern to record the score by passing in the score leader board. Rather than refactor at this point I decided to add a test for scoring 1 on each roll.</description>
+    </item>
+    
+    <item>
+      <title>Lunchtime Kata - Back to the Checkout</title>
+      <link>https://jajeffries.com/blog/lunchtime-kata-back-to-the-checkout/</link>
+      <pubDate>Sun, 09 Feb 2014 12:55:42 +0000</pubDate>
+      
+      <guid>https://jajeffries.com/blog/lunchtime-kata-back-to-the-checkout/</guid>
+      <description>Sorry for the delay in posting this. It&amp;rsquo;s a write up of a lunchtime kata from sometime this week, which some of my colleagues participated in. Usually a couple of times a week we will work on a coding exercise at lunchtime. This could be a kata with certain constraints. For example, no getters or setters, or only one level of nesting. I planned to use this kata to introduce the self shunt pattern to my colleagues.</description>
+    </item>
+    
+    <item>
+      <title>A Month of TDD</title>
+      <link>https://jajeffries.com/blog/a-month-of-tdd/</link>
+      <pubDate>Fri, 07 Feb 2014 12:43:47 +0000</pubDate>
+      
+      <guid>https://jajeffries.com/blog/a-month-of-tdd/</guid>
+      <description>NOTE: I actually wrote this yesterday, but didn&amp;rsquo;t get chance to post it. There may be an additional post today.
+Background
+I&amp;rsquo;m starting a new job in a few weeks where I will be using some technologies outside of my usual toolkit, namely node.js and Ruby. I&amp;rsquo;ve used them both for bits and pieces in the past, but I&amp;rsquo;ve never worked on a large code base in either.
+I&amp;rsquo;m also looking to improve my TDD skills.</description>
+    </item>
+    
+    <item>
+      <title>Risk Management for Developers</title>
+      <link>https://jajeffries.com/blog/risk-management-for-developers/</link>
+      <pubDate>Sat, 25 May 2013 14:22:30 +0000</pubDate>
+      
+      <guid>https://jajeffries.com/blog/risk-management-for-developers/</guid>
+      <description>Most developers have worked on projects which haven&amp;rsquo;t been as successful as they could have been. Everyone has things they would do differently if they were to do it again (which is why you should be doing retrospectives). But what can you do to reduce the risk of a project failing? Firstly it&amp;rsquo;s important to understand a little bit about what risk management actually is. In Slack, Tom DeMarco defines it as &amp;ldquo;a discipline of planning for failure&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,8 @@
+---
+title: 'The Pocket Calculator Kata Continued'
+date: Fri, 14 Feb 2014 12:49:06 +0000
+draft: false
+tags: []
+---
+
+I continued my work on the pocket calculator kata at lunch today. Previously I have been struggling to remove a big if else statement and was unsure of the best approach to take. I started off by writing another test. That an operator press resets the display to "0.". To get my test passing I simply added an elsif to my existing if statement that I was using to dispatch the button presses. Now that I was on green again and with the extra test under my belt I felt more confident about refactoring out the if statement. I started by introducing a mapping from button presses to symbols describing the type of button press. For example, 1 maps to :number and = maps to :operator. I ran the tests: still passing. Next I created handler classes for each symbol and made each one an observer of the display (self in this case). This got most of my tests passing again, except for one. I had neglected the fact that this meant I no longer had a way of tracking state, so my test for pressing "1" twice should display "11" was now failing as it was "1" instead. I'm not sure how to proceed from here. Would it be better to go back to how it was? Should I press on? My gut says to go back to how it was rather than refactor even more with broken tests. Unfortunately I'm out of time, so I will have to decide next time.

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Some git tips and a bonus bash tip</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Some git tips and a bonus bash tip</h1>
+			<b><time>10.02.2015 15:26</time></b>
+		       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<p>I&rsquo;ve just come across a couple of useful git commands and thought I would share them Check which files you have ignored with you .gitignore file [code] git check-ignore **/* [/code] Or [code] git status &ndash;ignored [/code] List all files in your local repo [code] git ls-tree &ndash;full-tree -r HEAD [/code] You can also change HEAD to be any revision. For example, to get all the files from the previous revision: [code] git ls-tree &ndash;full-tree -r HEAD@{1} [/code] Update all of your submodules. I often use this in build scripts before my tests are run. [code] git submodule foreach git pull [/code] <strong>BONUS</strong> I always find it hard to remember these commands and don&rsquo;t like typing in big errorprone commands so I add a comment to the end of complicated commands, which I can then search for. For example, I I have lots of servers I need to SSH into from time to time, but only have the IP of the server, I can add a comment describing the server. [code] ssh <a href="mailto:me@123.123.123.123">me@123.123.123.123</a> #the123server [/code] Now on my command line when I press ctrl-r to search and type &lsquo;#the123server&rsquo; it finds my commend and the command before it. [code] (reverse-i-search)`#&rsquo;: ssh <a href="mailto:me@123.123.123.123">me@123.123.123.123</a> #the123server [/code] Now just press enter to run the command. Hope these are useful to someone.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>A Ruby Oddity</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>A Ruby Oddity</h1>
+			<b><time>01.04.2014 19:34</time></b>
+		       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<p>I discovered some odd behaviour in Ruby the other day. If I have the following code declaring some variables</p>
+<blockquote>
+<p>irb(main):002:0&gt; a=1, irb(main):003:0* b=1 =&gt; [1, 1]</p>
+</blockquote>
+<p>This doesn&rsquo;t result in &lsquo;a&rsquo; having the value 1. Instead it is an array. This initially struck me as odd, until I started thinking about it as packing or unpacking tuples as you might do to return multiple values in a functional language, such as <a href="https://xkcd.com/1312/">Haskell</a>. For example, if we wanted to square a number and return both the square and the original number (why we&rsquo;d want to do this I don&rsquo;t know), we could write</p>
+<blockquote>
+<p>let square x = (x, x * x) in square 10</p>
+<p>=&gt;(10,100)</p>
+</blockquote>
+<p>The first part of our tuple is the original value and the second part is the origianl value squared. So how would this look in Ruby? I&rsquo;d probably write something like this.</p>
+<blockquote>
+<p>irb(main):013:0&gt; def square(x) irb(main):014:1&gt; [x, x *x] irb(main):015:1&gt; end</p>
+</blockquote>
+<p>Our braces to initalise the array seem a bit redundant here. Maybe we could rewrite it without them.</p>
+<blockquote>
+<p>irb(main):016:0&gt; def square(x) irb(main):017:1&gt; x, x *x irb(main):018:1&gt; end SyntaxError: (irb):17: syntax error, unexpected &lsquo;*&rsquo;, expecting &lsquo;=&rsquo; x, x *x ^ from /usr/bin/irb:12:in `<!-- raw HTML omitted -->&rsquo;</p>
+</blockquote>
+<p>Hmmm. Looks like this doesn&rsquo;t work quite the way I expected. We need a return statement in there too.</p>
+<blockquote>
+<p>irb(main):025:0&gt; def square(x) irb(main):026:1&gt; return x, x*x irb(main):027:1&gt; end</p>
+</blockquote>
+<p>I&rsquo;m not sure which I prefer, <a href="http://xaviershay.github.io/writing/docs/ruby_style_guide.html">or if this is even a good idea at all</a>. But how does this relate to our original problem? Well as we just saw in our square function we don&rsquo;t need the brackets to intialise an array so our original code could be rewritten as</p>
+<blockquote>
+<p>irb(main):005:0&gt; [a=1,b=1] =&gt; [1, 1] irb(main):006:0&gt; a =&gt; 1 irb(main):007:0&gt; b =&gt; 1</p>
+</blockquote>
+<p>Like in most functional languages Ruby is expression based so every statement evaluates to a value, even assignments. This means that our original code is actually the same as either</p>
+<blockquote>
+<p>irb(main):028:0&gt; a=1 =&gt; 1 irb(main):029:0&gt; b=1 =&gt; 1 irb(main):030:0&gt; [a,b] =&gt; [1, 1]</p>
+</blockquote>
+<p>Or even</p>
+<blockquote>
+<p>irb(main):031:0&gt; a,b=[1,2] =&gt; [1, 2] irb(main):032:0&gt; a =&gt; 1 irb(main):033:0&gt; b =&gt; 2</p>
+</blockquote>
+<p>Our last example strikes me as much more readable than the others, but as someone who regularly switches between node.js and Ruby I will certainly have to watch out for trailing comma&rsquo;s in my variable declarations.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

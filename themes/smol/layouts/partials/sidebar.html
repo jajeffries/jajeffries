@@ -1,0 +1,9 @@
+<aside>
+	<h3>Latest Posts</h3>
+	<ul>
+		{{ range first 10 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+		<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+		{{ end }}
+		<li><a href="/posts">More...</a></li>
+	</ul>
+</aside>

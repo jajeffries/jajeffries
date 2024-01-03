@@ -1,0 +1,47 @@
+baseURL = 'https://jajeffries.com/'
+languageCode = 'en-us'
+title = 'Blog'
+theme = 'smol'
+paginate = 100
+
+# Parameters
+[params]
+    subtitle = "Assorted ramblings on software"
+    dateFmt = "2006-02-01"
+
+# Header
+[menu]
+
+  [[menu.main]]
+        identifier = "aboutme"
+        name = "About Me"
+        url = "/pages/about-me/"
+        weight = 1
+
+  [[menu.main]]
+        identifier = "talks"
+        name = "Talks"
+        url = "/pages/talks/"
+        weight = 2
+
+  [[menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "/posts/"
+        weight = 3
+
+  [[menu.main]]
+        identifier = "categories"
+        name = "Categories"
+        url = "/categories/"
+        weight = 4
+
+# Footer
+  [[menu.footer]]
+        name = "Github"
+        url = "https://github.com/jajeffries"
+        weight = 1
+  [[menu.footer]]
+        name = "Mastadon"
+        url = "https://mastodon.social/@jajeffries"
+        weight = 2

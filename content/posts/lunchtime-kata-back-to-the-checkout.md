@@ -1,0 +1,15 @@
+---
+title: 'Lunchtime Kata - Back to the Checkout'
+date: Sun, 09 Feb 2014 12:55:42 +0000
+draft: false
+tags: ['kata', 'TDD', ]
+---
+
+Sorry for the delay in posting this. It's a write up of a lunchtime kata from sometime this week, which some of my colleagues participated in. Usually a couple of times a week we will work on a coding exercise at lunchtime. This could be a kata with certain constraints. For example, no getters or setters, or only one level of nesting. I planned to use this kata to introduce the self shunt pattern to my colleagues. I have been using it more over the last few weeks and find it a good alternative to mocks or spies, but still promotes thinking about the interaction between objects and pushes one to favour telling over asking. As we would be working in C# I wrote the first test, Checkout class and an IDisplay interface to get us started. I then walked the others through this step by step, describing why we passing 'this' in to the Checkout and why our test class implemented the IDisplay interface. After quickly rattling through the first few tests (selling one 'A' or one 'B'), I introduced the others to Kent Beck's four simple rules of design.
+
+1.  Run all the tests
+2.  Contain no duplicate code
+3.  Express all the ideas the author wants to express
+4.  Minimize classes and methods
+
+We decided that the code under test met all the fules, but it was suggested that we should refactor the tests to reduce duplication. I suggested that it could be a useful place to have duplication to highlight any pain points when creating objects. After some discussion we decided to go ahead with the refactoring on the basis that if it could be refactored to make object construction easy in our tests, then we should also be able to do this in code. Perhaps we could even use the code from our tests. We then noticed that after our refactoring we ended up with what could be considered a redundant test. We were constructing a Dictionary of item SKU's and prices and then we check that the total was correct. The second test did the same, but for a different item SKU so I argued that it was duplication and we should remove it. The others suggested that it was used to triangulate and so should be left in to show in the tests that it was designed for multiple items not just one so someone wouldn't remove code necessary code in the future. I felt a bit uncomfortable with the idea, but as we were out of time we decided to leave it in. It didn't occur to me until afterwards, but I could have argued that the code itself suggested that the checkout was designed for multiple items as we were passing a collection of SKU's and prices rather than a single SKU and price, or even just a price. I think I will try and explore some ideas about the pros and cons of triangulation in test and in what circumstances it makes sense to leave triangulation tests in the test suite. The resulting code is available [here](https://github.com/jajeffries/CheckoutKataSelfShunt/). I think it may have been left mid refactor so the test might be a bit confusing.

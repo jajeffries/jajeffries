@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Lunchtime Kata - Back to the Checkout</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Lunchtime Kata - Back to the Checkout</h1>
+			<b><time>09.02.2014 12:55</time></b>
+		       
+		           <a href="/tags/kata">kata</a>
+        	       
+		           <a href="/tags/tdd">TDD</a>
+        	       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<p>Sorry for the delay in posting this. It&rsquo;s a write up of a lunchtime kata from sometime this week, which some of my colleagues participated in. Usually a couple of times a week we will work on a coding exercise at lunchtime. This could be a kata with certain constraints. For example, no getters or setters, or only one level of nesting. I planned to use this kata to introduce the self shunt pattern to my colleagues. I have been using it more over the last few weeks and find it a good alternative to mocks or spies, but still promotes thinking about the interaction between objects and pushes one to favour telling over asking. As we would be working in C# I wrote the first test, Checkout class and an IDisplay interface to get us started. I then walked the others through this step by step, describing why we passing &rsquo;this&rsquo; in to the Checkout and why our test class implemented the IDisplay interface. After quickly rattling through the first few tests (selling one &lsquo;A&rsquo; or one &lsquo;B&rsquo;), I introduced the others to Kent Beck&rsquo;s four simple rules of design.</p>
+<ol>
+<li>Run all the tests</li>
+<li>Contain no duplicate code</li>
+<li>Express all the ideas the author wants to express</li>
+<li>Minimize classes and methods</li>
+</ol>
+<p>We decided that the code under test met all the fules, but it was suggested that we should refactor the tests to reduce duplication. I suggested that it could be a useful place to have duplication to highlight any pain points when creating objects. After some discussion we decided to go ahead with the refactoring on the basis that if it could be refactored to make object construction easy in our tests, then we should also be able to do this in code. Perhaps we could even use the code from our tests. We then noticed that after our refactoring we ended up with what could be considered a redundant test. We were constructing a Dictionary of item SKU&rsquo;s and prices and then we check that the total was correct. The second test did the same, but for a different item SKU so I argued that it was duplication and we should remove it. The others suggested that it was used to triangulate and so should be left in to show in the tests that it was designed for multiple items not just one so someone wouldn&rsquo;t remove code necessary code in the future. I felt a bit uncomfortable with the idea, but as we were out of time we decided to leave it in. It didn&rsquo;t occur to me until afterwards, but I could have argued that the code itself suggested that the checkout was designed for multiple items as we were passing a collection of SKU&rsquo;s and prices rather than a single SKU and price, or even just a price. I think I will try and explore some ideas about the pros and cons of triangulation in test and in what circumstances it makes sense to leave triangulation tests in the test suite. The resulting code is available <a href="https://github.com/jajeffries/CheckoutKataSelfShunt/">here</a>. I think it may have been left mid refactor so the test might be a bit confusing.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>A really simple front end javascript router</title>
+	
+	
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	==========<br>
+	== <a href="https://jajeffries.com/blog/">Blog</a> ==<br>
+	==========
+	<div style="float: right;">Your blog subtitle goes here!</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/blog/posts/"><b>Posts</b></a>.
+			
+			<a href="/blog/categories/"><b>Categories</b></a>.
+			
+			<a href="/blog/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>A really simple front end javascript router</h1>
+			<b><time>15.05.2014 19:58</time></b>
+		       
+		           <a href="/tags/javascript">javascript</a>
+        	       
+		           <a href="/tags/js">js</a>
+        	       
+		           <a href="/tags/uncategorized">Uncategorized</a>
+        	       
+
+			<div>
+				<p>I dislike using large frameworks and libraries for front end work. I think I read a quote somewhere that you use librarie, but frameworks use you. I couldn&rsquo;t agree more and in fact where possible I prefer to use snippets or gists, such as <a href="http://ejohn.org/blog/javascript-micro-templating/">John Ressig&rsquo;s MicroTemplates</a>. The following funciton is intended to be used in a similar way, just copy it into your project. It listens to the popstate event and routes the change to the correct address based on an object you pass in.</p>
+<blockquote>
+<p>function setupRoutes(routes) { window.onpopstate = function(event) { if (routes[location.hash.slice(1)]) routes[location.hash.slice(1)]() }; }  </p>
+</blockquote>
+<p>So if you had a main page and a menu page you might call setupRoutes as follows.</p>
+<blockquote>
+<p>setupRoutes({ main: function () { // load your main page html }, menu: function () { // load your menu page html } });  </p>
+</blockquote>
+<p>Typically I use the routes object to transition to new views and remove unused elements from the DOM in phonegap applications. In you HTML you can change the hash state by linking to a hash. For example,</p>
+<blockquote>
+<p><!-- raw HTML omitted -->Main<!-- raw HTML omitted --></p>
+</blockquote>
+<p>would call the main function in the previous example. You can also change it from javascript by setting the location.href to the hash you want. For example,</p>
+<blockquote>
+<p>location.href= &lsquo;#main&rsquo;</p>
+</blockquote>
+<p>This keeps the code nice and simple, it&rsquo;s easy to debug and leaves you in complete control of how you change between views.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/blog/pages/about-me/">About me</a></li>
+				
+				<li><a href="/blog/pages/talks/">Talks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="https://jajeffries.com/blog/"><b>Blog</b></a>.
+	<a href="https://github.com/example"><b>Github</b></a>.
+	<a href="https://example.com/@user"><b>Mastodon</b></a>.
+	<a href="/blog/imprint"><b>Imprint</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>
