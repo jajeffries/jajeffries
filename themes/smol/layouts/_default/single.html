@@ -2,10 +2,9 @@
 	<main>
 		<article>
 			<h1>{{ .Title }}</h1>
-			<time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time>
-		        {{ range .Params.tags }}
-		           <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-        	    {{ end }}
+			{{ range .Params.tags }}
+				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+			{{ end }}
 
 			<div>
 				{{ .Content }}
