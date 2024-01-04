@@ -39,3 +39,11 @@ paginate = 100
         name = "Mastadon"
         url = "https://mastodon.social/@jajeffries"
         weight = 2
+  [[menu.footer]]
+        name = "LinkedIn"
+        url = "https://linkedin.com/in/james-jeffries-aa403512"
+        weight = 3
+  [[menu.footer]]
+        name = "GPG"
+        url = "/gpg.pub"
+        weight = 4
