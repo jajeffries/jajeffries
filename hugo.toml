@@ -19,9 +19,9 @@ paginate = 100
         weight = 1
 
   [[menu.main]]
-        identifier = "talks"
-        name = "Talks"
-        url = "/pages/talks/"
+        identifier = "weeknotes"
+        name = "Week Notes"
+        url = "/weeknotes/"
         weight = 2
 
   [[menu.main]]
@@ -29,6 +29,12 @@ paginate = 100
         name = "Posts"
         url = "/posts/"
         weight = 3
+
+  [[menu.main]]
+        identifier = "talks"
+        name = "Talks"
+        url = "/pages/talks/"
+        weight = 4
 
 # Footer
   [[menu.footer]]
