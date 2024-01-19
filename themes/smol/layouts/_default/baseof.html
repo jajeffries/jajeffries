@@ -12,7 +12,7 @@
 	{{ range .Site.Params.customCSS -}}
 		<link rel="stylesheet" href="{{ . | relURL }}?rnd={{ now.Unix }}">
 	{{- end }}
-	<link rel="alternate" type="application/rss+xml" href="{{.Site.BaseURL }}rss.xml" title="{{ .Site.Title }}">
+	<link rel="alternate" type="application/rss+xml" href="{{.Site.BaseURL }}index.xml" title="{{ .Site.Title }}">
 </head>
 <body>
 	{{ partial "header" . }}
